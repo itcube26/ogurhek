@@ -14,50 +14,77 @@ void setup() { // один раз при включении
 
 }
 
-void vpered(){
+void vpered(int x){
   digitalWrite(M1_dir, 0);
   digitalWrite(M2_dir, 0);
   analogWrite(M1_Speed, 50);
   analogWrite(M2_Speed, 50); 
+  
+  delay ( x );
+
 }
 
-
-
-void loop() { 
-  
-  vpered();
-               
-  delay ( 1000 );
-
-  // стоп
+void ctop(){
   analogWrite(M1_Speed,0);
   analogWrite(M2_Speed,0);
+  
   delay ( 2000 );
-
-  // назад
+}
+  
+void nazad(){                                                        
   digitalWrite(M1_dir, 1);
   digitalWrite(M2_dir, 1);
   analogWrite(M1_Speed, 50);
   analogWrite(M2_Speed, 50);  
-               
+              
   delay ( 1000 );
+}
 
-  // стоп
-  analogWrite(M1_Speed,0);
-  analogWrite(M2_Speed,0);
-  delay ( 2000 );
-  
-  // налево
+void nalevo(int x){  
   digitalWrite(M1_dir, 0);
   digitalWrite(M2_dir, 1);
   analogWrite(M1_Speed, 50);
   analogWrite(M2_Speed, 50); 
-  delay ( 1000 );
-  
-  // направо
+  delay ( x );
+}
+
+void napravo(int x){
   digitalWrite(M1_dir, 1);
   digitalWrite(M2_dir, 0);
   analogWrite(M1_Speed, 50);
   analogWrite(M2_Speed, 50); 
-  delay ( 1000 );
+  delay ( x );
 }
+  
+void loop() { 
+
+  nalevo(200);
+
+  napravo(200);
+}
+ /*
+  vpered(1000, 255);
+
+  ctop();
+
+  vpered(2000, 50);
+
+  ctop();
+
+  vpered(500, 30);
+
+  nazad();
+
+  ctop();
+
+  nalevo();
+
+  napravo();
+  */
+
+
+  
+  
+  
+  
+ 
